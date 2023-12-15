@@ -4,6 +4,7 @@ window.onload = () => {
     createApp({
         data() {
             return {
+                /**Declaro las variables iniciales*/
                 showPrincipal:true,
                 showCatalogo:false,
                 showDetalle:false,
@@ -23,6 +24,9 @@ window.onload = () => {
             }
         },
         methods:{
+            /**
+             * Función para mostrar el catálogo de productos
+             */
             verCatalogo(categoria = null){
                 this.orden="";
                 if(categoria != null){
@@ -35,6 +39,9 @@ window.onload = () => {
                 this.showDetalle = false;
                 this.showCarrito = false;
             },
+            /**
+             * Función para ver un producto en concreto
+             */
             verDetalle(id){
                 this.idSeleccionado = id,
                 this.cargaDetalle();
@@ -44,6 +51,10 @@ window.onload = () => {
                 this.showDetalle = true,
                 this.showCarrito = false
             },
+            /**
+             * Función para mostrar el carrito con los productos 
+             * que se van a comprar
+             */
             verCarrito(){
                 this.check = false;
                 this.showPrincipal = false;
@@ -56,8 +67,12 @@ window.onload = () => {
                     this.isCarrito = false;
                 }
             },
+            /**
+             * Función para cargar los productos
+             */
             cargaProductos(){
                 let url;
+                /** Comprobara si hay una categoria seleccionada o no */
                 if(this.selectCategoria == ""){
                     url = "https://fakestoreapi.com/products";
                 }else{
@@ -78,6 +93,9 @@ window.onload = () => {
                         console.error('Error al hacer la petición AJAX:', error);
                     });
             },
+            /**
+             * Función para cargar las categorias de productos
+             */
             cargaCategorias(){
               fetch('https://fakestoreapi.com/products/categories')
                 .then(
@@ -94,6 +112,9 @@ window.onload = () => {
                     console.error('Error al hacer la petición AJAX:', error);
                 })
             },
+            /**
+             * Función para cargar los detalles de un producto
+             */
             cargaDetalle(){
                 let url= "https://fakestoreapi.com/products/"+this.idSeleccionado;
                 fetch(url)
@@ -112,6 +133,9 @@ window.onload = () => {
                     console.error('Error al hacer la petición AJAX:', error);
                 })                
             },
+            /**
+             * Función para añadir un producto al carrito
+             */
             addCarrito(producto){
                 if(this.cantidad>0){
                     let isProducto = false
@@ -136,11 +160,17 @@ window.onload = () => {
                     localStorage.setItem("carrito",JSON.stringify(this.carrito));
                 }
             },
+            /**
+             * Función para aumentar la cantidad de un producto
+             */
             addProduct(product){
                 product.cantidad++;
                 product.total = product.product.price * product.cantidad;
                 localStorage.setItem("carrito",JSON.stringify(this.carrito));
             },
+            /**
+             * Función para restar la cantidad de un producto
+             */
             substractProduct(producto){
                 if(producto.cantidad > 1){
                     producto.cantidad--;
@@ -161,10 +191,16 @@ window.onload = () => {
                 this.verCarrito();
                 localStorage.setItem("carrito",JSON.stringify(this.carrito));
             },
+            /**
+             * Función para eliminar un producto
+             */
             remove(producto){
                 producto.cantidad = 0
                 this.substractProduct(producto);
             },
+            /**
+             * Función para volver al inicio
+             */
             volverInicio(){
                 this.showPrincipal=true;
                 this.showCatalogo=false;
@@ -176,6 +212,9 @@ window.onload = () => {
                 this.isCarrito=false;
                 localStorage.setItem("carrito",JSON.stringify(this.carrito));
             },
+            /**
+             * Función para hacer el pedido
+             */
             finalizarPedido(){
                 this.isPedido = true;
                 setTimeout(this.volverInicio,3000)
