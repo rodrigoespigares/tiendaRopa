@@ -1,0 +1,106 @@
+/*Comienzo el header*/
+header{
+    /*Ancho del header*/
+    grid-column: 1/-1;
+    /*Alto del header*/
+    /*Declaro flex interior*/
+    display: flex;
+    justify-content: space-around;
+    /*Padding interior*/
+    /*Linea divisoria inferior*/
+    border-bottom: .1rem solid var(--primary);
+}
+/*Diseño del logo*/
+.header__logo{
+    /*Colocacion*/
+    justify-self: center;
+    align-self: center;
+    /*Color*/
+    color: var(--secondary);
+}
+.header__interaccion{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 0 2rem 0 3rem;
+    align-items: center;
+    width: 100%;
+}
+/*Colocacion de botones*/
+.header__userInteraction{
+    /*Tamaño icono*/
+    font-size: 2rem;
+    /*Necesario para row*/
+    display: flex;
+    /*Alienado*/
+    align-items: center;
+}
+/*Boton de carrito*/
+.header__userInteraction__shop{
+    /*Quitando bordes por defecto*/
+    border: none;
+    background-color: transparent;
+    /*Defino cursor*/
+    cursor: pointer;
+}
+/*Editando icono*/
+.ph-shopping-cart-simple{
+    /*Tamaño*/
+    font-size: 4rem;
+    /*Color*/
+    color: var(--secondary);
+}
+.header__userInteraction__container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+/*Definiendo agrupacion de los botones login y registro*/
+.header__userInteraction__container button {
+    /*Cursor*/
+    cursor: pointer;
+    /*Elimino bordes*/
+    border: 0;
+    /*Bordes redondos de 4px*/
+    border-radius: .4rem;
+    /*Margen laterales*/
+    margin: 0 .1rem;
+    /*tamaño de la fuente*/
+    font-size: 1.5rem;
+    /*pading vertical y horizontal*/
+    padding: 1rem 2vw;
+    /*Sombreado*/
+    box-shadow: 0 0 2rem var(--secondaryCeroSeis);
+    /*transicion*/
+    transition: 0.4s;
+}
+/*Diseño de registrar*/
+.header__userInteraction__container__register {
+color: white;
+background-color: var(--secondary);
+}
+/*Diseño de login*/
+.header__userInteraction__container__login {
+color: var(--secondary);
+background-color: rgba(255, 255, 255, 1);
+border: .1rem solid var(--secondary);
+}
+/*Diseño de hover*/
+/*Registrar y login*/
+.header__userInteraction__container button:hover {
+color: white;
+box-shadow: 0 0 2rem var(--secondaryCeroSeis);
+background-color: var(--secondary);
+}
+.header__userInteraction__shop__cant{
+    background-color: red;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: .5rem;
+    border-radius: 100%;
+    position: absolute;
+    top: 1.4%;
+    right: 11%;
+}

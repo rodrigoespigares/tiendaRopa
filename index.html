@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi tienda</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="css/normalize.css"> <!-- Estilos básicos-->
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/rrss.css">
+    <link rel="stylesheet" href="css/catalogo.css">
+    <link rel="stylesheet" href="css/detalle.css">
+    <link rel="stylesheet" href="css/carrito.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="app.js"></script>
+</head>
+<body id="app">
+    <!--*-*-*-*-*-*-*-*-*-*-*-*-*-* HEADER *-*-*-*-*-*-*-*-*-*-*-*-*-*-->
+    <header>
+        <div class="header__logo">
+            <a href="index.html" class="header__logo"><h1>Zarando</h1></a>
+        </div>
+        <nav class="top-nav header__nav">
+            <input id="menu-toggle" type="checkbox" v-model="check"/>
+            <label class='menu-button-container' for="menu-toggle">
+                <div class='menu-button'></div>
+            </label>
+            <ul class="menu" >
+                <li class="header__nav__container" v-for="categoria in categorias"><a href="#" class="header__nav__container__link" @click="verCatalogo(categoria)">{{categoria}}</a></li>
+            </ul>
+        </nav>
+        <div class="header__userInteraction">
+            <div class="header__userInteraction__container">
+                <button class="header__userInteraction__container__login">Iniciar Sesión</button>
+                <button class="header__userInteraction__container__register">Registrarse</button>
+            </div>
+            <button @click="verCarrito()" class="header__userInteraction__shop"><i class="ph ph-shopping-cart-simple"></i><span class="header__userInteraction__shop__cant">{{carritoContados}}</span></button>
+        </div>
+        
+    </header>
+    <!--*-*-*-*-*-*-*-*-*-*-*-*-*-* MAIN *-*-*-*-*-*-*-*-*-*-*-*-*-*-->
+    <main>
+        <!--*-*-*-*-*-*-*-*-*-*-*-*-*-* PRINCIPAL *-*-*-*-*-*-*-*-*-*-*-*-*-*-->
+        <section v-if="showPrincipal" id="index">
+             <!--*-*-*-*-*-*-*-*-*-*-*-*-*-* HERO *-*-*-*-*-*-*-*-*-*-*-*-*-*-->
+             <section id="hero">
+                <div class="slider">
+                    <div class="slider__inner">
+                        <article class="slider__item slider__1">
+                            <div class="hero__info">
+                                <h2 class="hero__info__title">Temporada invierno 23-24</h2>
+                                <p class="hero__info__p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, distinctio! Accusamus tempore tempora, quis cum beatae nulla dolore, voluptatem dolorem et libero quaerat, quod velit non nisi ea. Temporibus delectus quos libero iure incidunt eos. Molestias nemo autem numquam, odit asperiores voluptatibus quidem illo ipsum iure similique dolore, iste alias!</p>
+                            </div>
+                        </article>
+                        <article class="slider__item slider__2">
+                            <div class="hero__info">
+                                <h2 class="hero__info__title">Rebajas Enero</h2>
+                                <p class="hero__info__p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, distinctio! Accusamus tempore tempora, quis cum beatae nulla dolore, voluptatem dolorem et libero quaerat, quod velit non nisi ea. Temporibus delectus quos libero iure incidunt eos. Molestias nemo autem numquam, odit asperiores voluptatibus quidem illo ipsum iure similique dolore, iste alias!</p>
+                            </div>
+                        </article>
+                        <article class="slider__item slider__3">
+                            <div class="hero__info">
+                                <h2 class="hero__info__title">Ofertas de navidad</h2>
+                                <p class="hero__info__p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, distinctio! Accusamus tempore tempora, quis cum beatae nulla dolore, voluptatem dolorem et libero quaerat, quod velit non nisi ea. Temporibus delectus quos libero iure incidunt eos. Molestias nemo autem numquam, odit asperiores voluptatibus quidem illo ipsum iure similique dolore, iste alias!</p>
+                            </div>
+                        </article>
+                        <article class="slider__item slider__4">
+                            <div class="hero__info">
+                                <h2 class="hero__info__title">Fiesta de año nuevo</h2>
+                                <p class="hero__info__p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, distinctio! Accusamus tempore tempora, quis cum beatae nulla dolore, voluptatem dolorem et libero quaerat, quod velit non nisi ea. Temporibus delectus quos libero iure incidunt eos. Molestias nemo autem numquam, odit asperiores voluptatibus quidem illo ipsum iure similique dolore, iste alias!</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <!--*-*-*-*-*-*-*-*-*-*-*-*-*-* BANNER *-*-*-*-*-*-*-*-*-*-*-*-*-*-->
+            <section id="banner">
+                <div class="banner__header">
+                    <div class="banner__header__contain">
+                        <h2 class="banner__header__contain--title">Zarando</h2>
+                        <p class="banner__header__contain--text">Tienda de moda y accesorios ONLINE</p>
+                    </div>
+                </div>
+            </section>
+            <!--*-*-*-*-*-*-*-*-*-*-*-*-*-* CONTACT *-*-*-*-*-*-*-*-*-*-*-*-*-*-->
+            <section id="contact">
+                <!--*-*-*-*-*-*-*-*-*-*-*-*-*-* RRSS *-*-*-*-*-*-*-*-*-*-*-*-*-*-->
+                <section id="rrss">
+                    <section class="rrss__galery">
+                        <div class="rrss__galery__photo"><img class="rrss__galery__photo__img" src="img/social1.jpg" alt="Contenido social"></div>
+                        <div class="rrss__galery__photo"><img class="rrss__galery__photo__img" src="img/social2.jpg" alt="Contenido social"></div>
+                        <div class="rrss__galery__photo"><img class="rrss__galery__photo__img" src="img/social3.jpg" alt="Contenido social"></div>
+                    </section>
+                    <section class="rrss__content">
+                        <p>Comienza a seguirnos en nuestras redes sociales para poder tener más información y no perderte ninguna <span>OFERTA!!</span></p>
+                        <div class="rrss__content__social">
+                            <a href="facebook.com"><i class="ph-light ph-facebook-logo"></i></a>
+                            <a href="instragram.es"><i class="ph-light ph-instagram-logo"></i></a>
+                            <a href="twitter.es"><i class="ph-light ph-twitter-logo"></i></a>
+                            <a href="youtube.com"><i class="ph-light ph-youtube-logo"></i></a>
+                        </div>
+                    </section>
+                </section>
+                <!--*-*-*-*-*-*-*-*-*-*-*-*-*-* NEWS LETTER *-*-*-*-*-*-*-*-*-*-*-*-*-*-->
+                <section id="personal">
+                    <form action="" method="post">
+                        <label for="news"><h2>SUSCRIBETE A NUESTRO NEWS LETTER</h2></label>
+                        <input type="text" name="" id="news">
+                        <button class="button__purple" type="submit">suscribirse</button>
+                    </form>
+                </section>
+            </section>
+        </section>
+        <!--*-*-*-*-*-*-*-*-*-*-*-*-*-* CATALOGO *-*-*-*-*-*-*-*-*-*-*-*-*-*-->
+        <section v-show="showCatalogo" id="catalogo">
+            <section class="catalogo__option">
+                <select name="" id="" v-model="orden">
+                    <option value="" hidden>Ordenar</option>
+                    <optgroup label="Nombre">
+                    <option value="nombre__a-z">Ordenar A-Z</option>
+                    <option value="nombre__z-a">Ordenar Z-A</option>
+                    <optgroup label="Precio">
+                    <option value="precio__descendente"> Precio descendente</option>
+                    <option value="precio__ascendente">Precio ascendente</option>
+                </select>
+                <button v-if="orden != ''" @click="verCatalogo(selectCategoria)" v-model="orden = ''">Restablecer</button>
+            </section>
+            <!--*-*-*-*-*-*-*-*-*-*-*-*-*-* PRODUCTOS *-*-*-*-*-*-*-*-*-*-*-*-*-*-->
+            <section class="catalogo__productos">
+                <div v-for="producto in ordena" class="catalogo__producto">
+                    
+                    <div class="catalogo__producto__content">
+                        <img class="catalogo__producto__content__img" :src="producto.image" :alt="producto.alt">
+                    </div>
+                    <h3 class="catalogo__producto__name">{{producto.title}}</h3>
+                    <p class="catalogo__producto__price">{{producto.price}}€</p>
+                    <a @click="verDetalle(producto.id)" class="button__purple" href="#">Ver más</a>
+                </div>
+            </section>
+        </section>
+        <!--*-*-*-*-*-*-*-*-*-*-*-*-*-* DETALLE *-*-*-*-*-*-*-*-*-*-*-*-*-*-->
+        <button @click="verCatalogo()" v-if="showDetalle" class="hiddenDetalle"><i class="ri-close-fill"></i></button>
+        <section v-if="showDetalle" id="detalle">
+            <section id="detalle__Galeria">
+                <div class="detalle__galeria__principal" >
+                    <img :src="detalle.image" alt="productos[idSeleccionado].title">
+                </div>
+            </section>
+            <section id="detalle__Texto">
+                <div class="detalle__texto__header">
+                    <h2>{{detalle.title}}</h2>
+                    <p>{{detalle.description}}</p>
+                </div>
+                <p>Envios disponibles a todos las ciudades de la Península Ibérica</p>
+                <p>Con motivo de las compras navideñas, los pedidos realizados desde el 15 de noviembre podrán devolverse hasta el 10 de enero</p>
+                <p>Precio: {{detalle.price}} €</p>
+                <div class="detalle__texto__tallas">
+                    <h3>Cantidad:</h3>
+                    <input type="number" name="" id="" v-model="cantidad" min="0" max="15">
+                </div>
+                <section class="valoracion">
+                    <h3>Valoracion:</h3>
+                    <div class="valoracion__start">
+                        <div class="Stars" :style="rate" aria-label="Rating of this product is 2.3 out of 5."></div>
+                        <p> ({{detalle.rating.count}}) </p>
+                    </div>
+                    
+                </section>
+                <a @click="addCarrito(detalle)" href="#" class="button__purple">Comprar</a>
+            </section>
+            <section id="detalle__Productos">
+                <h2>Más productos</h2>
+                
+                <article v-for="producto in productos">
+                    <div class="detalle__producto__content">
+                        <img :src="producto.image" alt="">
+                    </div>
+                    <div class="detalle__producto__texto">
+                        <p>{{producto.title}}</p>
+                        <p>{{producto.price}}€</p>
+                    </div>
+                    <a @click="verDetalle(producto.id)" class="button__purple" href="#">Ver más</a>
+                </article>
+            </section>
+        </section>
+        <!--*-*-*-*-*-*-*-*-*-*-*-*-*-* CARRITO *-*-*-*-*-*-*-*-*-*-*-*-*-*-->
+        <section v-if="showCarrito" id="carrito">
+            <section v-if="isCarrito" class="carrito__productos">
+                <section class="carrito__articulos">
+                    <article v-for="carritoItems in carrito" class="carrito__producto">
+                        <div class="carrito__producto__detalle__content">
+                            <img class="carrito__producto__detalle__content__img" :src="carritoItems.product.image">
+                        </div>
+                        <div class="carrito__producto__detalle">
+                            
+                            <h2>{{carritoItems.product.title}}</h2>
+                        </div>
+                        <div class="carrito__producto__price">
+                            <div class="carrito__producto__price--unidad">
+                                <h4>Precio por unidad: {{carritoItems.product.price}}€</h4>
+                            </div>
+                            <div >
+                                <h4>Total: </h4>
+                                <p class="carrito__producto__price--total">{{carritoItems.total}}€</p>
+                            </div>
+                        </div>
+                        <div class="carrito__producto__cantidad">
+                            <button @click="substractProduct(carritoItems)" class="carrito__producto__cantidad__boton"><i class="ri-subtract-line"></i></button>
+                            <p class="carrito__producto__cantidad__info">{{carritoItems.cantidad}}</p>
+                            <button @click="addProduct(carritoItems)" class="carrito__producto__cantidad__boton"><i class="ri-add-line"></i></button>
+                            <button @click="remove(carritoItems)" class="carrito__producto__cantidad__boton"><i class="ri-delete-bin-7-line"></i></button>
+                        </div>
+                    </article>
+                </section>
+                <section class="carrito__detalle">
+                    <h2>Resumen</h2>
+                    <h3>importe total: {{total}}€</h3>
+                    <button @click="finalizarPedido()">Finalizar compra</button>
+                </section>
+                <div v-if="isPedido" class="carrito__pedido">
+                    <h2>PEDIDO REALIZADO</h2>
+                </div>
+            </section>
+
+            <section v-if="!isCarrito" class="carrito__productos">
+                <article class="carrito__noProductos">
+                    <h3>Carrito</h3>
+                    <p>No hay productos en tu carrito</p>
+                    <p>Consulta todas nuestras ofertas</p>
+                    <button @click="volverInicio()">Continuar Comprando</button>
+                </article>
+            </section>
+        </section>
+    </main>
+    <!--*-*-*-*-*-*-*-*-*-*-*-*-*-* FOOTER *-*-*-*-*-*-*-*-*-*-*-*-*-*-->
+    <footer id="footer">
+        <section id="footer__help">
+            <h3>Ayuda</h3>
+            <ul>
+                <li><a href="#">Uso del producto</a></li>
+                <li><a href="#">Preguntas frecuentes</a></li>
+                <li><a href="#">Cuestiones</a></li>
+                <li><a href="#">Foro</a></li>
+            </ul>
+        </section>
+        <section id="footer__us">
+            <h3>Nosotros</h3>
+            <ul>
+                <li><a href="#">Jobs</a></li>
+                <li><a href="#">Sobre nosotros</a></li>
+                <li><a href="#">Uso de nuestra marca</a></li>
+                <li><a href="#">Conctacto</a></li>
+            </ul>
+        </section>
+        <section id="footer__legal">
+            <h3>Legal</h3>
+            <ul>
+                <li><a href="#">Contacto legal</a></li>
+                <li><a href="#">Marca registrada</a></li>
+                <li><a href="#">Privacidad</a></li>
+                <li><a href="#">Seguridad y cookies</a></li>
+            </ul>
+        </section>
+        <section id="footer__info">
+            <div class="metodos">
+                <h3>Metodos de pago</h3>
+                <div class="metodos__icon">
+                    <i class="ri-visa-line"></i>
+                    <i class="ri-paypal-line"></i>
+                    <i class="ri-mastercard-line"></i>
+                </div>
+            </div>
+            <div class="rrss__content__social">
+                <a href="facebook.com"><i class="ph-light ph-facebook-logo"></i></a>
+                <a href="instragram.es"><i class="ph-light ph-instagram-logo"></i></a>
+                <a href="twitter.es"><i class="ph-light ph-twitter-logo"></i></a>
+                <a href="youtube.com"><i class="ph-light ph-youtube-logo"></i></a>
+            </div>
+        </section>
+    </footer>
+</body>
+</html>

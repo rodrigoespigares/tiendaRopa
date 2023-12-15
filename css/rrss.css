@@ -1,0 +1,83 @@
+#contact{
+    grid-row: banner-end/contact-end;
+    display: flex;
+    flex-direction: column;
+
+}
+#rrss{
+    display: flex;
+    max-height: 50vh;
+}
+.rrss__galery{
+    display: flex;
+    width: 100vh;
+    padding: 3rem;
+}
+.rrss__galery__photo{
+   width: 100%;
+   padding: 1rem;
+   border: .1rem solid var(--primary);
+   margin: .5rem;
+}
+.rrss__galery__photo__img{
+    width: 100%;
+    height: 100%;
+}
+.rrss__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.rrss__content p{
+    font-weight: 400;
+}
+.rrss__content p span{
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--secondary);
+}
+.rrss__content__social{
+    display: flex;
+    justify-content: space-around;
+}
+.rrss__content__social a{
+    color: var(--secondary);
+    font-size: 10rem;
+}
+#personal{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#personal form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 3rem;
+    height: 30%;
+}
+#personal .button__purple{
+    color: white;
+    background-color: var(--secondary);
+    /*Cursor*/
+    cursor: pointer;
+    /*Elimino bordes*/
+    border: 0;
+    /*Bordes redondos de 4px*/
+    border-radius: .4rem;
+    /*Margen laterales*/
+    margin: 0 .1rem;
+    /*tamaño de la fuente*/
+    font-size: 1.5rem;
+    /*pading vertical y horizontal*/
+    padding: 1rem 2vw;
+    /*transicion*/
+    transition: 0.4s;
+    text-transform: uppercase;
+}
+#personal .button__purple:hover{
+    color: white;
+    box-shadow: 0 0 2rem 1rem var(--secondaryCeroSeis);
+    background-color: var(--secondary);
+}

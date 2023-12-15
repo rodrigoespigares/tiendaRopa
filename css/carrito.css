@@ -1,0 +1,125 @@
+#carrito{
+    display: flex;
+    width: 100%;
+    column-gap: 3rem;
+}
+.carrito__productos{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.carrito__articulos{
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+}
+.carrito__producto{
+    display: grid;
+    grid-template-areas: "img title title"
+                         "img price ."
+                         "img opciones.";
+    border-top: .1rem solid black;
+    border-left: .1rem solid black;
+    border-right: .1rem solid black;
+    padding: 3rem;
+    column-gap: 2rem;
+}
+.carrito__producto:last-child{
+    border-bottom: .1rem solid black;
+}
+.carrito__producto__detalle{
+    grid-area: title;
+    display: flex;
+    align-items: center;
+}
+.carrito__producto__detalle__content{
+    grid-area: img;
+    padding: 1.3rem;
+    min-width: 13rem;
+    max-width: 16rem;
+}
+.carrito__producto__detalle__content__img{
+    width: 100%;
+    height: 100%;
+}
+.carrito__producto__price{
+    grid-area: price;
+}
+.carrito__producto__price .carrito__producto__price--unidad{
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    width: max-content;
+}
+.carrito__producto__price h4{
+    font-size: 2rem;
+}
+.carrito__producto__price .carrito__producto__price--total{
+    font-size: 3rem;
+    color: red;
+    font-weight: 400;
+}
+.carrito__producto__cantidad{
+    grid-area: opciones;
+    display: flex;
+    align-items: center;
+    column-gap: 3rem;
+    
+}
+.carrito__producto__cantidad__info{
+    font-weight: 400;
+}
+.carrito__producto__cantidad__boton i{
+    font-size: 2rem;
+}
+.carrito__detalle{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: .1rem solid black;
+    padding: 3rem;
+}
+.carrito__detalle h3{
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+.carrito__detalle button{
+    font-size: 3rem;
+    cursor: pointer;
+    background-color: var(--secondary);
+    color: white;
+    border: none;
+    padding: .2rem 3rem;
+}
+.carrito__noProductos{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+.carrito__noProductos h3{
+    font-size: 4rem;
+    text-align: center;
+}
+.carrito__noProductos p{
+    font-weight: 400;
+    text-align: center;
+}
+.carrito__noProductos button{
+    background-color: var(--secondary);
+    color: white;
+    border: none;
+    font-size: 3rem;
+    padding: .2rem 3rem;
+    border-radius: 3rem;
+    cursor: pointer;
+}
+.carrito__pedido{
+    position: absolute;
+    top: 15vh;
+    left: 35%;
+    background-color: rgb(203, 252, 175);
+    padding: 1rem 4rem;
+}
+.carrito__pedido h2{
+    font-size: 4rem;
+}

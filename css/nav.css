@@ -1,0 +1,115 @@
+/* Estilo para la barra de navegación en la parte superior */
+.top-nav {
+  color: var(--primary);
+}
+
+/* Estilo para el menú de navegación */
+.menu {
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  z-index: -1;
+}
+
+.menu > li {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+
+/* Estilo para el contenedor del botón del menú */
+.menu-button-container {
+  display: flex;
+  top: 3%;
+  left: 3%;
+  height: 5rem;
+  width: 4rem;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 4;
+}
+
+/* Estilo para el botón del menú (hamburguesa) y sus efectos de animación */
+#menu-toggle {
+  display: none;
+}
+
+.menu-button,
+.menu-button::before,
+.menu-button::after {
+  background-color: var(--primary);
+  position: absolute;
+  height: 4px;
+  width: 30px;
+  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 2px;
+  z-index: 3;
+}
+
+.menu-button::before {
+  content: '';
+  margin-top: -8px;
+}
+
+.menu-button::after {
+  content: '';
+  margin-top: 8px;
+}
+
+/* Efectos de animación al hacer clic en el botón del menú */
+#menu-toggle:checked + .menu-button-container .menu-button::before {
+  background-color: white;
+  margin-top: 0px;
+  transform: rotate(405deg);
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button {
+  background: rgba(255, 255, 255, 0);
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button::after {
+  background-color: white;
+  margin-top: 0px;
+  transform: rotate(-405deg);
+}
+
+  
+#menu-toggle:checked ~ .menu{
+  background-color: var(--primaryCeroOcho);
+  z-index: 1;
+}
+
+#menu-toggle ~ .menu li {
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+#menu-toggle:checked ~ .menu li {
+  font-size: 3rem;
+  height: 4em;
+  display: flex;
+  align-items: center;
+  transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+#menu-toggle:checked ~ .menu li a{
+  color: white;
+  font-weight: 600;
+  text-align: center;
+}
+#menu-toggle:checked ~ .menu li a:hover{
+  color: var(--secondary);
+}

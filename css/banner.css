@@ -1,0 +1,25 @@
+#banner{
+    display: grid;
+    grid-row: hero-end/banner-end;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.banner__header{
+    background-image: url(../img/background4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; 
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.banner__header__contain{
+    background-color: white;
+    max-width: 50rem;
+    padding: 3rem;
+    margin: 10rem
+}
+.banner__header__contain--title{
+    font-family: 'Cinzel Decorative', serif;
+}

@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Montserrat:wght@200;400;600&display=swap');
+*{
+    /*Establezco el tamaño a 10px con el porcentaje*/
+    font-size: 62.5%;
+    /*Elimino la decoracion de las listas*/
+    list-style: none;
+    /* Establezco padding y margin a 0*/
+    padding: 0;
+    margin: 0;
+    /* Establezco el box sizing como border box*/
+    box-sizing: border-box;
+    /*Quito decoracion del texto*/
+    text-decoration: none;
+    /*Fuente por defecto*/
+    font-family: 'Montserrat', sans-serif;
+    /*Ancho por defecto*/
+    font-weight: 400;
+
+}
+/* Declaracion de variables*/
+:root{
+    /* Color proncipal */
+    --primary: rgb(105, 105, 105);
+    --primaryCeroOcho: rgba(105, 105, 105,0.8);
+    --primaryCeroSeis: rgba(105, 105, 105,0.6);
+    /* Letra para enlaces */
+    --letter: #000;
+    /* Para los hover */
+    --letter-hover : #fff;
+    /* Color secundario */
+    --secondary: rgb(104, 85, 224);
+    --secondaryCeroSeis: rgba(104, 85, 224,0.6);
+    
+}
+/* Declaro el body y sus caracteristicas*/
+body{
+    background-color: #eee;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(min-content, 1fr));
+    grid-template-rows: [header-start] minmax(10vh,max-content) [main-start] minmax(85vh,min-content) [footer-start] minmax(min-content,40vh) [footer-end];
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    row-gap: 3rem;
+}
+h1{
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 5rem;
+}
+h2{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 3rem;
+    color: var(--primary);
+}
+p{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+a{
+    color: var(--secondary);
+}

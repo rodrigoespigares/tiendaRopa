@@ -1,0 +1,29 @@
+#footer{
+    grid-row: footer-start/footer-end;
+    grid-column: 1/-1;
+    border-top: .1rem solid var(--primary) ;
+    display: grid;
+    grid-template-columns: repeat(6,minmax(16.66%,min-content));
+    font-size: 10rem;
+    align-items: center;
+}
+#footer__help{
+    grid-column: 2/3;
+}
+#footer h3{
+    margin-bottom: 1rem;
+}
+#footer__info{
+    font-size: 7.8rem;
+    width: 100%;
+}
+#footer__info .metodos__icon{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+#footer__info .metodos__icon i{
+    font-size: 3rem;
+    
+    
+}
