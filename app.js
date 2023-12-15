@@ -21,6 +21,7 @@ window.onload = () => {
                 orden: "",
                 isCarrito:false,
                 isPedido:false,
+                isLoading : false,
             }
         },
         methods:{
@@ -71,6 +72,7 @@ window.onload = () => {
              * Función para cargar los productos
              */
             cargaProductos(){
+                this.isLoading = true
                 let url;
                 /** Comprobara si hay una categoria seleccionada o no */
                 if(this.selectCategoria == ""){
@@ -80,6 +82,7 @@ window.onload = () => {
                 }
                 fetch(url)
                     .then(response => {
+                        
                         if (!response.ok) {
                             throw new Error('Error en la petición AJAX');
                         }
@@ -87,7 +90,7 @@ window.onload = () => {
                     })
                     .then(data => {
                         this.productos = (data);
-
+                        this.isLoading = false
                     })
                     .catch(error => {
                         console.error('Error al hacer la petición AJAX:', error);
@@ -97,29 +100,34 @@ window.onload = () => {
              * Función para cargar las categorias de productos
              */
             cargaCategorias(){
-              fetch('https://fakestoreapi.com/products/categories')
-                .then(
-                  res=>{
-                    if (!res.ok) {
-                        throw new Error('Error en la petición AJAX');
-                    }
-                    
-                    return res.json()})
-                .then(data=>{
-                    this.categorias= (data);
-                })
-                .catch(error =>{
-                    console.error('Error al hacer la petición AJAX:', error);
-                })
+                this.isLoading = true
+                fetch('https://fakestoreapi.com/products/categories')
+                    .then(
+                    res=>{
+                        
+                        if (!res.ok) {
+                            throw new Error('Error en la petición AJAX');
+                        }
+                        
+                        return res.json()})
+                    .then(data=>{
+                        this.categorias= (data);
+                        this.isLoading = false
+                    })
+                    .catch(error =>{
+                        console.error('Error al hacer la petición AJAX:', error);
+                    })
             },
             /**
              * Función para cargar los detalles de un producto
              */
             cargaDetalle(){
+                this.isLoading = true
                 let url= "https://fakestoreapi.com/products/"+this.idSeleccionado;
                 fetch(url)
                 .then(
                   res=>{
+
                     if (!res.ok) {
                         throw new Error('Error en la petición AJAX');
                     }
@@ -128,6 +136,7 @@ window.onload = () => {
                 .then(data=>{
                     this.detalle= (data);
                     this.rate = "--rating: "+this.detalle.rating.rate;
+                    this.isLoading = false
                 })
                 .catch(error =>{
                     console.error('Error al hacer la petición AJAX:', error);
@@ -210,6 +219,7 @@ window.onload = () => {
                 this.carrito=[];
                 this.orden= "";
                 this.isCarrito=false;
+                this.isPedido=false;
                 localStorage.setItem("carrito",JSON.stringify(this.carrito));
             },
             /**
